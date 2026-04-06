@@ -1,0 +1,17 @@
+def rob(nums):
+    if not nums:
+        return 0
+    n = len(nums)
+    if n == 1:
+        return nums[0]
+
+    prev1, prev2 = 0, 0  # prev1 = dp[i-1], prev2 = dp[i-2]
+    for num in nums:
+        temp = prev1
+        prev1 = max(prev1, prev2 + num)  # choose max(rob, skip)
+        prev2 = temp
+    return prev1
+
+# Example usage
+nums = [2,7,9,3,1]
+print(rob(nums))  
