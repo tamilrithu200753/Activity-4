@@ -1,0 +1,11 @@
+def climbStairs(n):
+    if n == 1:
+        return 1
+    a, b = 1, 2  # ways to reach step 1 and step 2
+    for i in range(3, n+1):
+        a, b = b, a + b
+    return b
+
+# Example usage
+n = 5
+print(climbStairs(n))  # Output: 8
